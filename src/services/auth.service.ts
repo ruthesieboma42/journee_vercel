@@ -1,4 +1,4 @@
-const API_URL = "https://journee-xzmq.onrender.com/api/auth";
+const API_URL = "https://journee-main.onrender.com/api/auth";
 
 export interface AuthResponse {
   token: string;
