@@ -11,11 +11,11 @@ function Header() {
     navigate(routes.LOGIN);
   };
 
-  const [userData] = useState({
+  const [userData] = {
   firstName: '',
   lastName: '',
   email: ''
-});
+};
   
   return (
     <div style={{ width: "100vw", backgroundColor: "#f9fafb" }}>
