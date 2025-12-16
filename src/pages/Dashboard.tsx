@@ -19,7 +19,7 @@ export default function Dashboard() {
     cancelEdit,
   } = useNotesStore();
 
-  const [userData, setUserData] = useState({
+  const [userData] = useState({
   firstName: '',
   lastName: '',
   email: ''
