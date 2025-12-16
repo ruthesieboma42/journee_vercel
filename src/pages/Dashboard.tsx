@@ -19,11 +19,11 @@ export default function Dashboard() {
     cancelEdit,
   } = useNotesStore();
 
-  const [userData] = useState({
+  const [userData] = {
   firstName: '',
   lastName: '',
   email: ''
-});
+};
 
   const [searchQuery, setSearchQuery] = useState<string>("");
 
