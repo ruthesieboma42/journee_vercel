@@ -19,12 +19,7 @@ export default function Dashboard() {
     cancelEdit,
   } = useNotesStore();
 
-  const [userData] = {
-  firstName: '',
-  lastName: '',
-  email: ''
-};
-
+  
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
@@ -416,7 +411,7 @@ export default function Dashboard() {
                         fontFamily: "plus-jakarta-sans, sans-serif",
                       }}
                     >
-                      {userData.firstName} {userData.lastName}
+                      Full name
                     </div>
                     <div
                       style={{
@@ -425,7 +420,7 @@ export default function Dashboard() {
                         fontFamily: "plus-jakarta-sans, sans-serif",
                       }}
                     >
-                       {userData.email}
+                       emailaddress@gmail.com
                     </div>
                   </div>
                 </div>
