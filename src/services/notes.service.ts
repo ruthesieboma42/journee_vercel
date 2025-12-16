@@ -5,7 +5,7 @@ export interface Note {
   updatedAt: string;
 }
 
-const API_URL = "https://journee-xzmq.onrender.com/api/Notes";
+const API_URL = "https://journee-main.onrender.com/api/Notes";
 
 const getAuthHeader = (): Record<string, string> | undefined => {
   const token = localStorage.getItem("token");
