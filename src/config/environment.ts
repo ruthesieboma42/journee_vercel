@@ -1,7 +1,7 @@
 // Environment configuration
 export const config = {
   // Set to true to use mock data, false to use real API
-  useMockData: true,
+  useMockData: false,
 
   // API configuration
   apiUrl: "https://localhost:7014/api",
