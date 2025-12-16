@@ -11,11 +11,6 @@ function Header() {
     navigate(routes.LOGIN);
   };
 
-  const [userData] = {
-  firstName: '',
-  lastName: '',
-  email: ''
-};
   
   return (
     <div style={{ width: "100vw", backgroundColor: "#f9fafb" }}>
@@ -93,7 +88,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              {userData.firstName} {userData.lastName}
+              Full name
             </h1>
             <p
               style={{
@@ -103,7 +98,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              {userData.email}
+              emailaddress@gmail.com
             </p>
           </div>
 
