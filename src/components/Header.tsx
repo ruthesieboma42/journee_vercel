@@ -11,6 +11,12 @@ function Header() {
     navigate(routes.LOGIN);
   };
 
+  const [userData, setUserData] = useState({
+  firstName: '',
+  lastName: '',
+  email: ''
+});
+  
   return (
     <div style={{ width: "100vw", backgroundColor: "#f9fafb" }}>
       <div
@@ -87,8 +93,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              {/* This should not be hard coded */}
-              Oghenefejiro Esieboma
+              {userData.firstName} {userData.lastName}
             </h1>
             <p
               style={{
@@ -98,8 +103,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              {/* This should not be hard coded */}
-              ruthesieboma@gmail.com
+              {userData.email}
             </p>
           </div>
 
