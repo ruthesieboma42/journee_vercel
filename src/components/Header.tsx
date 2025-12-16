@@ -11,7 +11,7 @@ function Header() {
     navigate(routes.LOGIN);
   };
 
-  const [userData, setUserData] = useState({
+  const [userData] = useState({
   firstName: '',
   lastName: '',
   email: ''
