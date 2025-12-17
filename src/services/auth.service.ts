@@ -1,3 +1,5 @@
+// import { data } from "react-router-dom";
+
 const API_URL = "https://journee-main.onrender.com/api/auth";
 
 export interface AuthResponse {
@@ -52,7 +54,24 @@ export const authService = {
     return localStorage.getItem('token');
   },
 
+  async getCurrentUser() {
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${API_URL}/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) throw new Error("Not authenticated");
+
+  return res.json();
+},
+
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
+
 };
+
+

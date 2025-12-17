@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
 import journee_logo from "../assets/journee_logo.svg";
 import profileimage from "../assets/background_image_old.jpg";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../utils/navigation";
+import { authService } from "../services/auth.service";
+
+
+export interface User {
+  userId: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+}
+
+
 
 function Header() {
   const navigate = useNavigate();
@@ -9,8 +21,17 @@ function Header() {
   const handleLogout = () => {
     // Add your logout logic here (clear tokens, etc.)
     navigate(routes.LOGIN);
+    
   };
 
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    authService.getCurrentUser().then(setUser).catch(() => {
+    authService.logout();
+  });
+}, []);
+  
   
   return (
     <div style={{ width: "100vw", backgroundColor: "#f9fafb" }}>
@@ -88,7 +109,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              Full name
+               {user?.firstname} {user?.lastname}
             </h1>
             <p
               style={{
@@ -98,7 +119,7 @@ function Header() {
                 fontFamily: "plus-jakarta-sans, sans-serif",
               }}
             >
-              emailaddress@gmail.com
+               {user?.email} 
             </p>
           </div>
 

@@ -4,6 +4,14 @@ import { useNotesStore } from "../store/notes.store";
 import searchIcon from "../assets/search/search.svg";
 import filterIcon from "../assets/search/filter.svg";
 import emptystateimage from "../assets/empty_state.jpg"
+import { authService } from "../services/auth.service";
+
+export interface User {
+  userId: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+}
 
 export default function Dashboard() {
   const {
@@ -18,6 +26,14 @@ export default function Dashboard() {
     updateDraftNote,
     cancelEdit,
   } = useNotesStore();
+
+const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    authService.getCurrentUser().then(setUser).catch(() => {
+    authService.logout();
+  });
+}, []);
 
   
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -411,7 +427,7 @@ export default function Dashboard() {
                         fontFamily: "plus-jakarta-sans, sans-serif",
                       }}
                     >
-                      Full name
+                      {user?.firstname} {user?.lastname}
                     </div>
                     <div
                       style={{
@@ -420,7 +436,7 @@ export default function Dashboard() {
                         fontFamily: "plus-jakarta-sans, sans-serif",
                       }}
                     >
-                       emailaddress@gmail.com
+                       {user?.email}
                     </div>
                   </div>
                 </div>
